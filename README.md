@@ -2,6 +2,7 @@
 
 This is the shopping cart assignment which was worked on as a part of HTML CSS Training
 
+
 ## Getting Started
 
 Clone this repo and run following command
