@@ -37,13 +37,16 @@ class productListView extends View {
         }
       });
     });
-    $(".catalouge__filter").on("click", function (event) {
+    $(".catalouge__filter .selected").focus();
+    $(".catalouge__filter").on("click keypress", function (event) {
       const targetElem = event.target.closest(".catalouge__filter--item");
       if (targetElem) {
         if (targetElem.classList.contains("selected")) {
+          targetElem.ariaChecked = false;
           targetElem.classList.remove("selected");
           window.location.hash = "#products";
         } else {
+          targetElem.ariaChecked = true;
           $(".sidebar__toggle-btn").textContent = targetElem.textContent;
           window.location.hash = targetElem.dataset.filterId;
           targetElem.classList.add("selected");

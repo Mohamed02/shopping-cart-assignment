@@ -1,15 +1,19 @@
 # XT Shopping Cart Assignment
 
-This is the base folder for the shopping cart exercise. You will have all the static assets and mock server responses available in this repo.
+This is the shopping cart app code. Please follow the following step to bring
 
 ## Getting Started
 
-Clone this repo and run following command for starting the mock server:
+Clone this repo and run following command
 
-```
-npm install
-npm run start
-# or
-yarn install
-yarn start
-```
+For installing the dependencies
+
+    npm install
+
+For starting the mock api server
+
+    npm run api-start
+
+For starting the app
+
+    npm start

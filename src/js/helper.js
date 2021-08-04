@@ -34,8 +34,8 @@ const helper = {
       return hashVal[0];
     }
     if (type == "query" && hashVal[1]) {
-      queryArray = hashVal[1].split(";");
-      queryObjArray = queryArray.map((curr) => ({
+      const queryArray = hashVal[1].split(";");
+      const queryObjArray = queryArray.map((curr) => ({
         [curr.split("=")[0]]: curr.split("=")[1],
       }));
       return Object.assign({}, ...queryObjArray);
@@ -43,8 +43,8 @@ const helper = {
   },
 
   delay: function () {
-    return;
-    for (i = 0; i < 1000000000; i++) {}
+   return;
+   // for (let i = 0; i < 1000000000; i++) {}
   },
 };
 module.exports = helper;

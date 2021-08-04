@@ -2,7 +2,7 @@ const handlebars = require("handlebars");
 
 const registrationTemplate = {
   registerHelpers() {},
-  generateMarkup(state) {
+  generateMarkup() {
     this.registerHelpers();
     const template = handlebars.compile(`<div class="login">
                 <div class="login__intro">

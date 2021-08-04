@@ -8,7 +8,7 @@ const productListTemplate = {
         return options.fn(this);
       }
     });
-    handlebars.registerHelper("categoryHeader", function (categories, options) {
+    handlebars.registerHelper("categoryHeader", function (categories) {
       const selectedCategory = categories.find(
         (elem) => (elem.selected = true)
       );
@@ -34,7 +34,7 @@ const productListTemplate = {
     this.registerHelpers();
     const template = handlebars.compile(`
     
-        <section class="product-list">
+        <section class="product-list" aria-live="assertive">
         {{#noProductFound products}}
             <h2 class=" product-list-not-found heading-2">No Products Found on the selected category</h2>
             {{else}}
@@ -55,18 +55,20 @@ const productListTemplate = {
   _getCategorySideBarMarkup(data) {
     this.registerHelpers();
     const template = handlebars.compile(`
-    <nav class="sidebar" >
+    <div class="sidebar" >
     <div class="sidebar__toggle-btn button-3 collapse" >Select the Category</div>
-        <ul class="catalouge__filter">
+        <ul class="catalouge__filter" aria-label="Category Filter">
        
         {{#each categories}}
-            <li role="button" tab-index="0" arial-label ="{{this.name}}" class="catalouge__filter--item {{#if this.selected}} selected {{/if}}" data-filter-id="#products?cat={{this.id}}">
-              <!--  <p class="heading-4"><a href="#products?cat={{this.id}}">{{this.name}}</a></p>  -->
-               {{this.name}}
+            <li tab-index="0"  role="checkbox" aria-checked="{{this.selected}}" tabindex="0" arial-label ="{{this.name}}" class="catalouge__filter--item {{#if this.selected}} selected {{/if}}" data-filter-id="#products?cat={{this.id}}">
+         <!-- <a href="#products?cat={{this.id}}">{{this.name}}</a> -->
+         {{this.name}}  
+            <!-- <span role="checkbox" aria-checked="false" tabindex="0" aria-labelledby="{{this.id}}">
+            </span> <label id="{{this.id}}">{{this.name}}</label>-->
             </li>
         {{/each}}
         </ul>
-        </nav>`);
+        </div>`);
 
     return template({
       categories: data,

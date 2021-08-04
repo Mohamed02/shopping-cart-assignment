@@ -13,12 +13,11 @@ export const state = {
 };
 /// Fetching Categories
 export const fetchCategories = async function () {
-  helper.delay();
   state.categories = await helper.getJSON(`${config.BASE_URL}/categories`);
 };
 /// Fetching Offers
 export const fetchOffers = async function () {
-  helper.delay();
+ 
   state.offers = await helper.getJSON(`${config.BASE_URL}/banners`);
 };
 
@@ -52,6 +51,7 @@ export const addToCart = async function (productId = null) {
   }
   const productList = this.state.products.productList;
   const cartItemList = this.state.cart;
+  // eslint-disable-next-line no-unused-vars
   const cartItems = productList.map((product) => {
     if (cartItemList[product.id]) {
       this.state.cart[product.id] = {
