@@ -1,6 +1,6 @@
 # XT Shopping Cart Assignment
 
-This is the shopping cart app code. Please follow the following step to bring
+This is the shopping cart assignment which was worked on as a part of HTML CSS Training
 
 ## Getting Started
 
